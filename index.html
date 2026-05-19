@@ -3,35 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    
-    <!-- SEO Meta Tags -->
     <title>Bambinos - Eventos temáticos | Reservas</title>
     <meta name="description" content="Ambientación, decoración y organización de eventos. Contamos con salón propio. Consultá disponibilidad con nuestro formulario inteligente.">
-    <meta name="keywords" content="eventos, salón de eventos, decoración, ambientación, cumpleaños, fiestas, alquiler de salón, cotización">
     <meta name="author" content="Bambinos">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Bambinos - Eventos temáticos">
-    <meta property="og:description" content="Salón de eventos y servicio de decoración y ambientación. Reservá tu fecha.">
-    <meta property="og:image" content="instalacion1.png">
-    <meta property="og:url" content="https://www.ejemplo.com">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="es_ES">
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%235D6D7E'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>🥂</text></svg>">
-    
-    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Flatpickr CSS (calendario moderno) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
-    
     <style>
-        /* ===== VARIABLES Y ESTILOS BASE ===== */
         :root {
             --primary-color: #5D6D7E;
             --secondary-color: #A3B5C0;
@@ -45,108 +24,37 @@
             --text-light: #555;
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
-            --hero-bg-image: url('hero.png');
             --header-footer-bg: #E8E8E8;
-            --icon-bg-light: #E0E0E0;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-color);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Montserrat', 'Segoe UI', sans-serif;
-            color: var(--dark-color);
-            font-weight: 700;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--light-color); }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--dark-color); font-weight: 700; }
         h1 { font-size: 2.8rem; margin-bottom: 1rem; }
         h2 { font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; position: relative; }
-        h2:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-color); }
+        h2:after { content: ''; position: absolute; width: 80px; height: 4px; background: var(--accent-color); bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
         p { margin-bottom: 1.2rem; font-size: 1.1rem; color: var(--text-light); }
         section { padding: 5rem 1.5rem; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         .text-center { text-align: center; }
-
-        /* Header */
-        header {
-            background-color: var(--header-footer-bg);
-            color: var(--dark-color);
-            padding: 1.2rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: bold; color: var(--dark-color); }
+        header { background-color: var(--header-footer-bg); padding: 1.2rem 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 50px; }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a { color: var(--dark-color); text-decoration: none; font-weight: 600; transition: var(--transition); }
         .nav-links a:hover { color: var(--accent-color); }
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--dark-color); font-size: 1.5rem; cursor: pointer; }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(44, 62, 80, 0.8)), var(--hero-bg-image);
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 6rem 1.5rem 3rem;
-        }
+        .hero { background: linear-gradient(rgba(255,255,255,0.7), rgba(44,62,80,0.8)), url('hero.webp'); background-size: cover; background-position: center; text-align: center; padding: 6rem 1.5rem 3rem; color: white; }
         .hero-logo img { max-height: 150px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
         .hero h1 { color: white; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem; color: white; }
         .hero-social { margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem; }
-        .hero-social a { color: white; font-size: 1.8rem; transition: var(--transition); opacity: 0.9; }
-        .hero-social a:hover { transform: translateY(-5px); opacity: 1; }
-
-        /* Botones */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            border: none;
-            cursor: pointer;
-            margin: 0.5rem;
-        }
+        .hero-social a { color: white; font-size: 1.8rem; transition: var(--transition); }
+        .hero-social a:hover { transform: translateY(-5px); }
+        .btn { display: inline-block; padding: 1rem 2.5rem; border-radius: 5px; font-size: 1.2rem; font-weight: bold; text-decoration: none; transition: var(--transition); box-shadow: var(--shadow); margin: 0.5rem; }
         .btn-whatsapp { background-color: var(--whatsapp-color); color: white; }
         .btn-whatsapp:hover { background-color: var(--whatsapp-hover); transform: translateY(-3px); }
         .btn-maps { background-color: var(--primary-color); color: white; }
         .btn-maps:hover { background-color: #4a5a6a; transform: translateY(-3px); }
-        .btn i { margin-right: 10px; }
-
-        /* Servicios y galería (estilos previos resumidos) */
         .services { background-color: white; }
         .service-list { display: flex; flex-direction: column; gap: 3rem; }
         .service-item { display: flex; align-items: center; gap: 2rem; background: var(--gray-bg); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
@@ -159,90 +67,251 @@
         .gallery-item { border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); height: 220px; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
         .gallery-item:hover img { transform: scale(1.1); }
-
-        /* Ubicación */
         .location-contact { background-color: white; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
         .map-container { border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); height: 100%; min-height: 350px; }
         .map-container iframe { width: 100%; height: 100%; border: 0; }
         .contact-details { display: flex; flex-direction: column; gap: 2rem; align-items: flex-start; }
         .contact-item { display: flex; align-items: center; gap: 1rem; }
-        .contact-item i { font-size: 1.3rem; color: var(--primary-color); background-color: var(--icon-bg-light); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-        .contact-link { color: inherit; text-decoration: none; transition: var(--transition); cursor: pointer; }
-        .contact-link:hover { color: var(--accent-color); text-decoration: underline; }
-
-        /* ===== FORMULARIO DE RESERVA CON CALENDARIO ===== */
+        .contact-item i { font-size: 1.3rem; color: var(--primary-color); background-color: #E0E0E0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .contact-link { color: inherit; text-decoration: none; transition: var(--transition); }
+        .contact-link:hover { color: var(--accent-color); }
         .booking-form-section { background-color: white; border-top: 1px solid var(--gray-bg); border-bottom: 1px solid var(--gray-bg); }
-        .form-container { max-width: 900px; margin: 2rem auto 0; background: var(--light-color); border-radius: 24px; padding: 2rem 2rem 2.5rem; box-shadow: var(--shadow); }
-        .form-group { margin-bottom: 1.8rem; }
+        .form-container { max-width: 1000px; margin: 2rem auto 0; background: var(--light-color); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 1.6rem; }
         .form-group label { display: block; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 0.5rem; color: var(--dark-color); }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 0.9rem 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 12px;
+        .required { color: #e74c3c; margin-left: 3px; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 0.8rem 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 12px;
             background-color: white; transition: var(--transition); outline: none;
         }
         .form-group input:focus, .form-group select:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(192,160,128,0.2); }
-        .checkbox-group { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 0.5rem; }
-        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; background: white; padding: 0.5rem 1rem; border-radius: 40px; border: 1px solid #ddd; cursor: pointer; }
-        .checkbox-item input { width: 18px; height: 18px; accent-color: var(--accent-color); margin: 0; }
-        .checkbox-item label { margin: 0; font-weight: 500; cursor: pointer; }
-        .form-hint { font-size: 0.85rem; color: #6c757d; margin-top: 0.4rem; }
-
-        /* Estilos específicos para el selector de fechas */
-        .date-range-wrapper { display: flex; flex-direction: column; gap: 0.8rem; }
-        .range-toggle { display: flex; align-items: center; gap: 0.8rem; margin-top: 0.5rem; }
-        .range-toggle input { width: auto; margin-right: 0.3rem; }
-        .range-toggle label { margin-bottom: 0; font-weight: normal; font-size: 0.95rem; cursor: pointer; }
-        .flatpickr-input { background-color: white; cursor: pointer; }
+        .radio-group-vertical { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
+        .radio-group-vertical label { font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+        .radio-group-vertical input { width: 18px; height: 18px; margin: 0; }
+        .theme-wrapper { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .theme-wrapper input[type="text"] { flex: 2; min-width: 180px; }
+        .theme-wrapper .checkbox-label { display: flex; align-items: center; gap: 0.4rem; background: white; padding: 0.5rem 1rem; border-radius: 40px; border: 1px solid #ddd; cursor: pointer; }
+        .theme-wrapper .checkbox-label input { width: 18px; height: 18px; margin: 0; }
+        
+        /* Grilla ordenada para calendario y reloj */
+        .datetime-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 0.5rem;
+        }
+        .calendar-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        .time-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        /* Contenedor del calendario centrado horizontalmente */
+        .calendar-wrapper {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+        }
+        .inline-calendar {
+            width: auto;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        /* Forzar que flatpickr se centre dentro de su contenedor */
+        .inline-calendar .flatpickr-calendar {
+            margin: 0 auto !important;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+            position: relative !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            width: auto !important;
+            min-width: 280px;
+        }
+        .inline-calendar .flatpickr-days,
+        .inline-calendar .dayContainer {
+            justify-content: center;
+            width: 100% !important;
+        }
+        .inline-calendar .flatpickr-day {
+            max-width: 14% !important;
+        }
+        /* Ajustes para que los meses también estén centrados */
+        .flatpickr-months {
+            display: flex;
+            justify-content: center;
+        }
+        .range-mode-toggle {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            width: 100%;
+        }
+        .range-mode-toggle input { width: auto; margin-right: 0.3rem; }
+        .range-mode-toggle label { font-weight: normal; font-size: 0.9rem; cursor: pointer; margin: 0; }
+        
+        /* Reloj digital centrado */
+        .digital-clock {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .clock-display-split {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-family: 'Montserrat', monospace;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        .hour-number, .minute-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+            min-width: 80px;
+            text-align: center;
+        }
+        .separator {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .clock-controls-vertical {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .control-group span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        .clock-btn-vertical {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .clock-btn-vertical:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+        .time-hint {
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin-top: 0.8rem;
+            text-align: center;
+        }
         
         .btn-submit {
-            background-color: var(--whatsapp-color); color: white; width: 100%; padding: 1rem; font-size: 1.2rem;
-            font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: var(--transition);
-            display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 0.5rem;
+            display: inline-block;
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin: 1.5rem auto 0;
+            width: auto;
+            min-width: 200px;
         }
-        .btn-submit:hover { background-color: var(--whatsapp-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,211,102,0.3); }
-        .alert-message { margin-top: 1.2rem; padding: 0.8rem; border-radius: 12px; text-align: center; font-weight: 500; display: none; }
+        .btn-submit:hover { background-color: var(--whatsapp-hover); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-submit i { margin-right: 8px; }
+        .alert-message { margin-top: 1.2rem; padding: 0.7rem; border-radius: 12px; text-align: center; font-weight: 500; display: none; }
         .alert-error { background-color: #ffe6e5; color: #c0392b; border-left: 4px solid #e74c3c; }
         .alert-success { background-color: #e0f7e8; color: #2e7d32; border-left: 4px solid #25D366; }
-
-        /* Footer */
         footer { background-color: var(--header-footer-bg); padding: 3rem 1.5rem; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
         .footer-column { flex: 1; min-width: 250px; }
-        .footer-column h3 { color: var(--dark-color); margin-bottom: 1.5rem; }
+        .footer-column h3 { margin-bottom: 1.5rem; }
         .contact-info { display: flex; align-items: center; margin-bottom: 1rem; gap: 0.8rem; }
-        .contact-info i { width: 24px; }
         .copyright { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.9rem; }
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-color); color: white;
-            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; box-shadow: 0 4px 20px rgba(37,211,102,0.5); z-index: 1000; transition: var(--transition);
-            text-decoration: none;
-        }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(37,211,102,0.5); z-index: 1000; transition: var(--transition); text-decoration: none; }
         .whatsapp-float:hover { background-color: var(--whatsapp-hover); transform: scale(1.1); }
-
-        /* Animaciones */
         .service-item, .gallery-item, .contact-grid { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
         .animated { opacity: 1 !important; transform: translateY(0) !important; }
-
-        @media (max-width: 992px) {
-            .service-item { flex-direction: column !important; }
-            .contact-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2.4rem; } h2 { font-size: 2.2rem; }
-        }
+        
+        /* Responsive: móvil apila columnas */
         @media (max-width: 768px) {
+            .datetime-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .calendar-col {
+                order: 1;
+            }
+            .time-col {
+                order: 2;
+            }
             .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 1.5rem; box-shadow: var(--shadow); }
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
             .hero { padding: 5rem 1.5rem; }
-            .form-container { padding: 1.5rem; }
-            .checkbox-group { gap: 0.8rem; }
+            .form-container { padding: 1.5rem; margin: 1rem; }
+            .btn-submit { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; }
+            .hour-number, .minute-number { font-size: 2rem; min-width: 60px; }
+            .separator { font-size: 2rem; }
+            .digital-clock { max-width: 100%; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container nav-container">
-            <div class="logo"><img src="logo.png" alt="Bambinos Logo"></div>
+            <div class="logo"><img src="logo.png" alt="Bambinos"></div>
             <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Inicio</a></li>
@@ -260,40 +329,33 @@
             <h1>Celebrá con nosotros y hacé de tu fiesta un recuerdo inolvidable.</h1>
             <p>Ambientación y decoración a domicilio para todo tipo de eventos.<br>Organización integral de eventos en nuestro salón propio:<br><strong>La Escondida by Bambinos.</strong></p>
             <a href="https://wa.me/5493425353534" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
-            <div class="hero-social">
-                <a href="https://www.facebook.com/Bambinosmesastematicassantafe/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/bambinoseventossf/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
+            <div class="hero-social"><a href="https://www.facebook.com/Bambinosmesastematicassantafe/" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/bambinoseventossf/" target="_blank"><i class="fab fa-instagram"></i></a></div>
         </div>
     </section>
 
     <section class="services" id="servicios">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
+        <div class="container"><h2>Nuestros Servicios</h2>
             <div class="service-list">
-                <div class="service-item"><div class="service-image"><img src="servicio1.png" alt="Eventos" loading="lazy"></div><div class="service-text"><h3>Eventos</h3><p>Trabajamos con todo tipo de eventos: cumpleaños, fiestas para jóvenes y adultos, baby shower, revelaciones de sexo, bodas, bautismos, fiestas de 15 y mucho más.</p></div></div>
-                <div class="service-item"><div class="service-image"><img src="servicio2.png" alt="Decoración" loading="lazy"></div><div class="service-text"><h3>Decoración y ambientación</h3><p>Decoración y ambientación de espacios. Llevamos nuestro servicio a salones, peloteros, domicilios, dentro y fuera de la ciudad. Incluye diseño y ambientación según la temática y colores elegidos.</p></div></div>
-                <div class="service-item"><div class="service-image"><img src="servicio3.png" alt="Salón propio" loading="lazy"></div><div class="service-text"><h3>Salón propio</h3><p>Contamos con nuestro propio salón, La Escondida by Bambinos. Organización completa: climatizado, catering, animación, inflables, cancha de fútbol, candy bar, plaza blanda Montessori y más.</p></div></div>
+                <div class="service-item"><div class="service-image"><img src="servicio1.png" alt="Eventos"></div><div class="service-text"><h3>Eventos</h3><p>Trabajamos con todo tipo de eventos: cumpleaños, fiestas para jóvenes y adultos, baby shower, bodas, bautismos y más.</p></div></div>
+                <div class="service-item"><div class="service-image"><img src="servicio2.png" alt="Decoración"></div><div class="service-text"><h3>Decoración y ambientación</h3><p>Decoración y ambientación de espacios. Llevamos nuestro servicio a domicilio, salones y peloteros. Incluye diseño integral con globos, estructuras, centros de mesa y más.</p></div></div>
+                <div class="service-item"><div class="service-image"><img src="servicio3.png" alt="Salón propio"></div><div class="service-text"><h3>Salón propio</h3><p>Contamos con La Escondida by Bambinos. Organización completa: climatizado, catering, animación, inflables, cancha de fútbol, candy bar y mucho más.</p></div></div>
             </div>
         </div>
     </section>
 
     <section class="gallery" id="salón">
-        <div class="container">
-            <h2>Nuestro salón</h2>
-            <p class="text-center">Conocé los espacios que ofrecemos para que tu evento sea inolvidable</p>
+        <div class="container"><h2>Nuestro salón</h2><p class="text-center">Conocé los espacios que ofrecemos</p>
             <div class="gallery-container">
-                <div class="gallery-item"><img src="instalacion1.png" alt="Salón principal" loading="lazy"></div>
-                <div class="gallery-item"><img src="instalacion2.png" alt="Área exterior" loading="lazy"></div>
-                <div class="gallery-item"><img src="instalacion3.png" alt="Zona barra" loading="lazy"></div>
-                <div class="gallery-item"><img src="instalacion4.png" alt="Decoración temática" loading="lazy"></div>
+                <div class="gallery-item"><img src="instalacion1.png" alt="Salón principal"></div>
+                <div class="gallery-item"><img src="instalacion2.png" alt="Área exterior"></div>
+                <div class="gallery-item"><img src="instalacion3.png" alt="Zona barra"></div>
+                <div class="gallery-item"><img src="instalacion4.png" alt="Decoración"></div>
             </div>
         </div>
     </section>
 
     <section class="location-contact" id="ubicacion">
-        <div class="container">
-            <h2>Ubicación y Contacto</h2>
+        <div class="container"><h2>Ubicación y Contacto</h2>
             <div class="contact-grid">
                 <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.659301502408!2d-60.7067639!3d-31.6157941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b5a9d8621dcbe7%3A0x6b8bb39f47174424!2sLa%20Escondida%20by%20Bambinos%20Eventos!5e0!3m2!1ses!2sar!4v1775522154122!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe></div>
                 <div class="contact-details">
@@ -306,60 +368,108 @@
         </div>
     </section>
 
-    <!-- FORMULARIO CON CALENDARIO EXPANDIBLE Y SELECCIÓN DE RANGOS / FECHAS PUNTUALES -->
     <section class="booking-form-section" id="reservas">
         <div class="container">
-            <h2>Consultá para reservar tu evento</h2>
-            <p class="text-center">Completá el formulario para <strong>consultar por disponibilidad de fechas</strong> para tu evento. </p>
+            <h2>Reservá tu fecha</h2>
+            <p class="text-center">Completá todos los campos y te armamos una consulta personalizada por WhatsApp</p>
             <div class="form-container">
                 <form id="reservationForm">
-                    <div class="form-group">
-                        <label for="fullname">Nombre y Apellido <span class="required">*</span></label>
-                        <input type="text" id="fullname" placeholder="Ej: María Gómez" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="serviceType">Tipo de servicio <span class="required">*</span></label>
+                    <div class="form-group"><label>Nombre y Apellido <span class="required">*</span></label><input type="text" id="fullname" placeholder="Ej: María Gómez"></div>
+                    <div class="form-group"><label>Tipo de servicio <span class="required">*</span></label>
                         <select id="serviceType" required>
                             <option value="" disabled selected>Seleccioná una opción</option>
-                            <option value="Decoración a domicilio">Decoración a domicilio</option>
-                            <option value="Alquiler del salón">Alquiler del salón (La Escondida by Bambinos)</option>
+                            <option value="Decoración y ambientación a domicilio">Decoración y ambientación a domicilio</option>
+                            <option value="Pelotero">Pelotero</option>
+                            <option value="Alquiler del Salón La Escondida by Bambinos">Alquiler del Salón La Escondida by Bambinos</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="eventType">Tipo de evento <span class="required">*</span></label>
+                    <div id="decoExtraFields" style="display: none;">
+                        <div class="form-group"><label>Tamaño de decoración <span class="required">*</span></label>
+                            <select id="decoSize">
+                                <option value="" disabled selected>Seleccioná tamaño</option>
+                                <option value="XL (servicio de deco estándar)">XL (servicio de deco estándar)</option>
+                                <option value="XXL (para decos con muchos elementos)">XXL (para decos con muchos elementos)</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>Dirección del evento <span class="required">*</span></label>
+                            <input type="text" id="eventAddress" placeholder="Calle, número, localidad, etc.">
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Tipo de evento <span class="required">*</span></label>
                         <select id="eventType" required>
                             <option value="" disabled selected>Seleccioná una opción</option>
                             <option value="Cumpleaños infantil">Cumpleaños infantil</option>
                             <option value="Cumpleaños adultos">Cumpleaños adultos</option>
                             <option value="Cumpleaños de 15">Cumpleaños de 15</option>
-                            <option value="Fiesta de casamiento">Fiesta de casamiento</option>
+                            <option value="Boda">Boda</option>
+                            <option value="Otro">Otro</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Características del evento (podés elegir varias)</label>
-                        <div class="checkbox-group" id="checklistGroup">
-                            <div class="checkbox-item"><input type="checkbox" id="optFormal" value="Formal"> <label for="optFormal">Formal</label></div>
-                            <div class="checkbox-item"><input type="checkbox" id="optInformal" value="Informal"> <label for="optInformal">Informal</label></div>
-                            <div class="checkbox-item"><input type="checkbox" id="optRelajado" value="Relajado"> <label for="optRelajado">Relajado</label></div>
-                            <div class="checkbox-item"><input type="checkbox" id="optGala" value="Gala"> <label for="optGala">Gala</label></div>
-                        </div>
-                        <div class="form-hint">Seleccioná una o más opciones según el estilo deseado.</div>
+                    <div class="form-group"><label>Cantidad estimada de personas <span class="required">*</span></label>
+                        <input type="number" id="guestCount" placeholder="Ej: 80" min="1" step="1">
                     </div>
-                    
-                    <!-- Nuevo campo: Calendario con soporte para fechas puntuales y rangos -->
+                    <div class="form-group"><label>Características del evento (elegí una) <span class="required">*</span></label>
+                        <div class="radio-group-vertical">
+                            <label><input type="radio" name="eventStyle" value="Formal"> Formal</label>
+                            <label><input type="radio" name="eventStyle" value="Informal (descontracturado)"> Informal (descontracturado)</label>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Temática del evento</label>
+                        <div class="theme-wrapper">
+                            <input type="text" id="themeText" placeholder="Ej: Fiesta hawaiana, Retro, etc.">
+                            <label class="checkbox-label"><input type="checkbox" id="noThemeCheck"> Ninguna</label>
+                        </div>
+                        <div class="form-hint">Si marcás "Ninguna", se ignorará la temática escrita.</div>
+                    </div>
+
+                    <!-- Fecha y hora con calendario centrado -->
                     <div class="form-group">
-                        <label for="dateRangePicker">Fecha(s) del evento <span class="required">*</span></label>
-                        <div class="date-range-wrapper">
-                            <input type="text" id="dateRangePicker" class="flatpickr-input" placeholder="Hacé clic para seleccionar fecha/s" readonly required>
-                            <div class="range-toggle">
-                                <input type="checkbox" id="rangeModeToggle">
-                                <label for="rangeModeToggle">🔁 Rango de fechas (si no es una fecha puntual, seleccionar inicio y fin)</label>
+                        <label>Fecha y hora del evento <span class="required">*</span></label>
+                        <div class="datetime-grid">
+                            <div class="calendar-col">
+                                <div class="calendar-wrapper">
+                                    <div id="inlineCalendar" class="inline-calendar"></div>
+                                </div>
+                                <div class="range-mode-toggle">
+                                    <input type="checkbox" id="rangeModeCheckbox">
+                                    <label for="rangeModeCheckbox">📅 Modo rango (seleccionar inicio y fin)</label>
+                                </div>
+                                <div class="form-hint" style="text-align:center; margin-top:8px;">Hacé clic en las fechas para seleccionar</div>
+                            </div>
+                            <div class="time-col">
+                                <div class="digital-clock">
+                                    <div class="clock-display-split">
+                                        <div class="hour-block">
+                                            <div class="hour-number" id="hourDisplay">--</div>
+                                        </div>
+                                        <span class="separator">:</span>
+                                        <div class="minute-block">
+                                            <div class="minute-number" id="minuteDisplay">--</div>
+                                        </div>
+                                    </div>
+                                    <div class="clock-controls-vertical">
+                                        <div class="control-group">
+                                            <button type="button" class="clock-btn-vertical" id="hourUpBtn"><i class="fas fa-chevron-up"></i></button>
+                                            <button type="button" class="clock-btn-vertical" id="hourDownBtn"><i class="fas fa-chevron-down"></i></button>
+                                            <span>Hora</span>
+                                        </div>
+                                        <div class="control-group">
+                                            <button type="button" class="clock-btn-vertical" id="minUpBtn"><i class="fas fa-chevron-up"></i></button>
+                                            <button type="button" class="clock-btn-vertical" id="minDownBtn"><i class="fas fa-chevron-down"></i></button>
+                                            <span>Minuto</span>
+                                        </div>
+                                    </div>
+                                    <div class="time-hint">Hora aproximada (formato 24h)</div>
+                                </div>
+                                <input type="hidden" id="selectedTime" value="">
                             </div>
                         </div>
                     </div>
 
                     <div id="formAlert" class="alert-message"></div>
-                    <button type="button" id="submitReservationBtn" class="btn-submit"><i class="fab fa-whatsapp"></i> Enviar consulta </button>
+                    <div style="text-align: center;">
+                        <button type="button" id="submitReservationBtn" class="btn-submit"><i class="fab fa-whatsapp"></i> Enviar consulta</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -368,26 +478,23 @@
     <footer>
         <div class="container">
             <div class="footer-container">
-                <div class="footer-column"><h3>Bambinos - Eventos temáticos</h3><p>Más de 10 años organizando eventos inolvidables. Nos adaptamos a tus necesidades.</p></div>
+                <div class="footer-column"><h3>Bambinos - Eventos temáticos</h3><p>Más de 10 años organizando eventos inolvidables.</p></div>
                 <div class="footer-column"><h3>Contacto</h3><div class="contact-info"><i class="fas fa-map-marker-alt"></i><span>Diag. Goyena 3271, Santa Fe</span></div><a href="tel:+5493425353534" class="contact-info contact-link"><i class="fas fa-phone-alt"></i><span>(0342) 155-353534</span></a></div>
-                <div class="footer-column"><h3>Redes sociales</h3><a href="https://www.facebook.com/Bambinosmesastematicassantafe/" class="contact-info contact-link"><i class="fab fa-facebook-f"></i><span>Facebook</span></a><a href="https://www.instagram.com/bambinoseventossf/" class="contact-info contact-link"><i class="fab fa-instagram"></i><span>@bambinoseventossf</span></a></div>
+                <div class="footer-column"><h3>Redes</h3><a href="https://www.facebook.com/Bambinosmesastematicassantafe/" class="contact-info contact-link"><i class="fab fa-facebook-f"></i><span>Facebook</span></a><a href="https://www.instagram.com/bambinoseventossf/" class="contact-info contact-link"><i class="fab fa-instagram"></i><span>@bambinoseventossf</span></a></div>
             </div>
             <div class="copyright"><p>&copy; <span id="currentYear"></span> Bambinos Eventos - Todos los derechos reservados.</p></div>
         </div>
     </footer>
-
     <a href="https://wa.me/5493425353534" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- Flatpickr JS y momento opcional (Flatpickr maneja fechas nativamente) -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
-
     <script>
-        // Mobile menu & smooth scroll
+        // Menú móvil y scroll suave
         const mobileBtn = document.getElementById('mobileMenuBtn');
-        const nav = document.getElementById('navLinks');
-        if(mobileBtn) mobileBtn.addEventListener('click', () => nav.classList.toggle('active'));
-        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
+        const navLinks = document.getElementById('navLinks');
+        if(mobileBtn) mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -397,177 +504,179 @@
         });
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // IntersectionObserver para animaciones
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animated'); });
-        }, { threshold: 0.1 });
+        // Animaciones
+        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animated'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.service-item, .gallery-item, .contact-grid').forEach(el => observer.observe(el));
 
-        // ----- CALENDARIO CON FLATPICKR (RANGO / FECHA PUNTUAL) -----
-        const datePickerInput = document.getElementById('dateRangePicker');
-        const rangeToggle = document.getElementById('rangeModeToggle');
-        let flatpickrInstance = null;
+        // ---- CALENDARIO INLINE CENTRADO ----
+        let currentFlatpickr = null;
+        let selectedDates = [];
+        const rangeCheckbox = document.getElementById('rangeModeCheckbox');
+        const inlineContainer = document.getElementById('inlineCalendar');
 
-        // Función para inicializar/destruir flatpickr según el modo
-        function initFlatpickr() {
-            if (flatpickrInstance) {
-                flatpickrInstance.destroy();
-                flatpickrInstance = null;
-            }
-            const isRange = rangeToggle.checked;
+        function initInlineCalendar() {
+            if (currentFlatpickr) currentFlatpickr.destroy();
+            const isRange = rangeCheckbox.checked;
             const config = {
+                inline: true,
                 locale: 'es',
-                dateFormat: isRange ? "d/m/Y" : "d/m/Y",
-                altInput: true,
-                altFormat: isRange ? "d/m/Y" : "d/m/Y",
-                allowInput: false,
-                disableMobile: true,
-                onChange: function(selectedDates, dateStr, instance) {
-                    // Para modo rango, la fecha se guarda con formato "fecha inicio - fecha fin"
-                    if (isRange && selectedDates.length === 2) {
-                        const start = flatpickrInstance.formatDate(selectedDates[0], "d/m/Y");
-                        const end = flatpickrInstance.formatDate(selectedDates[1], "d/m/Y");
-                        datePickerInput.value = `${start} - ${end}`;
-                    } else if (!isRange && selectedDates.length === 1) {
-                        datePickerInput.value = flatpickrInstance.formatDate(selectedDates[0], "d/m/Y");
-                    } else if (isRange && selectedDates.length === 1) {
-                        // Selección parcial, no mostramos aún
-                        datePickerInput.value = "";
-                    } else if (!isRange && selectedDates.length === 0) {
-                        datePickerInput.value = "";
-                    }
-                }
+                dateFormat: "d/m/Y",
+                onChange: function(dates) { selectedDates = dates; }
             };
-            if (isRange) {
-                config.mode = "range";
-                config.dateFormat = "d/m/Y";
-                config.altFormat = "d/m/Y";
-                // Al cargar, si ya había valor, lo parseamos
-                if (datePickerInput.value && datePickerInput.value.includes(' - ')) {
-                    const parts = datePickerInput.value.split(' - ');
-                    if (parts.length === 2) {
-                        // Intentamos parsear fechas para precargar
-                        const startDate = parseDate(parts[0]);
-                        const endDate = parseDate(parts[1]);
-                        if (startDate && endDate) config.defaultDate = [startDate, endDate];
-                    }
-                } else if (datePickerInput.value && !datePickerInput.value.includes(' - ')) {
-                    // Si tiene una fecha simple pero ahora es rango, la limpiamos
-                    datePickerInput.value = "";
-                }
-            } else {
-                config.mode = "single";
-                if (datePickerInput.value && !datePickerInput.value.includes(' - ')) {
-                    const singleDate = parseDate(datePickerInput.value);
-                    if (singleDate) config.defaultDate = singleDate;
-                } else {
-                    datePickerInput.value = "";
-                }
+            if (isRange) config.mode = "range";
+            else config.mode = "single";
+            if (selectedDates.length) {
+                if (isRange && selectedDates.length === 2) config.defaultDate = [selectedDates[0], selectedDates[1]];
+                else if (!isRange && selectedDates.length === 1) config.defaultDate = selectedDates[0];
             }
-            flatpickrInstance = flatpickr(datePickerInput, config);
-            // Si está en modo rango y ya había un rango válido, forzamos mostrar
-            if (isRange && datePickerInput.value && datePickerInput.value.includes(' - ')) {
-                // ya se cargó en config.defaultDate
-            }
+            currentFlatpickr = flatpickr(inlineContainer, config);
         }
 
-        function parseDate(dateStr) {
-            // formato dd/mm/yyyy
-            const parts = dateStr.split('/');
-            if (parts.length === 3) {
-                const day = parseInt(parts[0], 10);
-                const month = parseInt(parts[1], 10) - 1;
-                const year = parseInt(parts[2], 10);
-                return new Date(year, month, day);
-            }
-            return null;
+        rangeCheckbox.addEventListener('change', () => {
+            const oldDates = [...selectedDates];
+            initInlineCalendar();
+            if (rangeCheckbox.checked && oldDates.length === 2) currentFlatpickr.setDate([oldDates[0], oldDates[1]], true);
+            else if (!rangeCheckbox.checked && oldDates.length === 1) currentFlatpickr.setDate(oldDates[0], true);
+            else if (!rangeCheckbox.checked && oldDates.length === 2) currentFlatpickr.setDate(oldDates[0], true);
+            else if (rangeCheckbox.checked && oldDates.length === 1) currentFlatpickr.setDate(oldDates[0], true);
+            else currentFlatpickr.clear();
+        });
+        initInlineCalendar();
+
+        // ---- RELOJ DIGITAL ----
+        let currentHour = null;
+        let currentMinute = null;
+        const hourDisplay = document.getElementById('hourDisplay');
+        const minuteDisplay = document.getElementById('minuteDisplay');
+        const hourUp = document.getElementById('hourUpBtn');
+        const hourDown = document.getElementById('hourDownBtn');
+        const minUp = document.getElementById('minUpBtn');
+        const minDown = document.getElementById('minDownBtn');
+
+        function updateTimeDisplay() {
+            if (currentHour === null) hourDisplay.textContent = '--';
+            else hourDisplay.textContent = currentHour.toString().padStart(2, '0');
+            if (currentMinute === null) minuteDisplay.textContent = '--';
+            else minuteDisplay.textContent = currentMinute.toString().padStart(2, '0');
+            const valid = (currentHour !== null && currentMinute !== null);
+            document.getElementById('selectedTime').value = valid ? `${currentHour}:${currentMinute}` : '';
         }
 
-        rangeToggle.addEventListener('change', () => {
-            const oldValue = datePickerInput.value;
-            initFlatpickr();
-            // Si cambiamos de modo y había valor, lo conservamos solo si tiene sentido
-            if (oldValue) {
-                if (rangeToggle.checked && oldValue.includes(' - ')) {
-                    datePickerInput.value = oldValue;
-                    if (flatpickrInstance) flatpickrInstance.setDate(parseRangeDates(oldValue), true);
-                } else if (!rangeToggle.checked && !oldValue.includes(' - ')) {
-                    datePickerInput.value = oldValue;
-                    if (flatpickrInstance) flatpickrInstance.setDate(parseDate(oldValue), true);
-                } else {
-                    datePickerInput.value = "";
-                    if (flatpickrInstance) flatpickrInstance.clear();
-                }
+        function setHour(value) {
+            if (value < 0) value = 23;
+            if (value > 23) value = 0;
+            currentHour = value;
+            if (currentMinute === null) currentMinute = 0;
+            updateTimeDisplay();
+        }
+        function setMinute(value) {
+            if (value < 0) value = 59;
+            if (value > 59) value = 0;
+            currentMinute = value;
+            if (currentHour === null) currentHour = 12;
+            updateTimeDisplay();
+        }
+        hourUp.addEventListener('click', () => setHour((currentHour === null ? 12 : currentHour) + 1));
+        hourDown.addEventListener('click', () => setHour((currentHour === null ? 12 : currentHour) - 1));
+        minUp.addEventListener('click', () => setMinute((currentMinute === null ? 0 : currentMinute) + 1));
+        minDown.addEventListener('click', () => setMinute((currentMinute === null ? 0 : currentMinute) - 1));
+        updateTimeDisplay();
+
+        // Campos condicionales para decoración a domicilio
+        const serviceSelect = document.getElementById('serviceType');
+        const decoExtraDiv = document.getElementById('decoExtraFields');
+        const decoSizeSelect = document.getElementById('decoSize');
+        const eventAddressInput = document.getElementById('eventAddress');
+        function toggleDecoFields() {
+            if(serviceSelect.value === 'Decoración y ambientación a domicilio') {
+                decoExtraDiv.style.display = 'block';
+                decoSizeSelect.required = true;
+                eventAddressInput.required = true;
             } else {
-                datePickerInput.value = "";
-                if (flatpickrInstance) flatpickrInstance.clear();
+                decoExtraDiv.style.display = 'none';
+                decoSizeSelect.required = false;
+                eventAddressInput.required = false;
+                decoSizeSelect.value = '';
+                eventAddressInput.value = '';
             }
+        }
+        serviceSelect.addEventListener('change', toggleDecoFields);
+        toggleDecoFields();
+
+        const noThemeCheck = document.getElementById('noThemeCheck');
+        const themeText = document.getElementById('themeText');
+        noThemeCheck.addEventListener('change', function() {
+            themeText.disabled = this.checked;
+            if(this.checked) themeText.value = '';
         });
 
-        function parseRangeDates(rangeStr) {
-            const parts = rangeStr.split(' - ');
-            if (parts.length === 2) {
-                const start = parseDate(parts[0]);
-                const end = parseDate(parts[1]);
-                if (start && end) return [start, end];
-            }
-            return null;
-        }
-
-        // Inicializar flatpickr con modo single por defecto
-        initFlatpickr();
-
-        // ----- LÓGICA DEL MENSAJE DE WHATSAPP -----
+        // Envío a WhatsApp
         const submitBtn = document.getElementById('submitReservationBtn');
         const alertBox = document.getElementById('formAlert');
 
-        function getSelectedCharacteristics() {
-            const checks = document.querySelectorAll('#checklistGroup input[type="checkbox"]');
-            let selected = [];
-            checks.forEach(cb => { if(cb.checked) selected.push(cb.value); });
-            return selected.length ? selected.join(', ') : 'Ninguna especificada (consultar recomendación)';
+        function getSelectedStyle() {
+            const radios = document.querySelectorAll('input[name="eventStyle"]');
+            for(let r of radios) if(r.checked) return r.value;
+            return '';
         }
-
+        function getThemeValue() {
+            if(noThemeCheck.checked) return "Ninguna (sin temática específica)";
+            return themeText.value.trim() || "No especificada";
+        }
         function getFormattedDateRange() {
-            let rawDate = datePickerInput.value.trim();
-            if (!rawDate) return '';
-            // Si el modo rango está activado y hay guión, mostramos como rango. Si no, fecha única.
-            if (rangeToggle.checked && rawDate.includes(' - ')) {
-                return rawDate; // ya tiene formato "d/m/Y - d/m/Y"
-            } else if (!rangeToggle.checked && rawDate) {
-                return rawDate; // fecha puntual
-            } else if (rangeToggle.checked && !rawDate.includes(' - ') && rawDate) {
-                // Podría ser una fecha suelta en modo rango (seleccionaron un solo día)
-                return rawDate;
+            if (!selectedDates.length) return '';
+            if (rangeCheckbox.checked && selectedDates.length === 2) {
+                const start = currentFlatpickr.formatDate(selectedDates[0], "d/m/Y");
+                const end = currentFlatpickr.formatDate(selectedDates[1], "d/m/Y");
+                return `${start} - ${end}`;
+            } else if (selectedDates.length >= 1) {
+                return currentFlatpickr.formatDate(selectedDates[0], "d/m/Y");
             }
-            return rawDate;
+            return '';
+        }
+        function getTimeValue() {
+            const time = document.getElementById('selectedTime').value;
+            return time && time !== '--:--' ? time : '';
         }
 
         function buildWhatsAppMessage() {
             const nombre = document.getElementById('fullname').value.trim();
-            const servicio = document.getElementById('serviceType').value;
-            const tipoEvento = document.getElementById('eventType').value;
-            const caracteristicas = getSelectedCharacteristics();
-            const fechaTexto = getFormattedDateRange();
-
-            if(!nombre) return { error: "Por favor, completá tu nombre y apellido." };
+            if(!nombre) return { error: "Completá tu nombre y apellido." };
+            const servicio = serviceSelect.value;
             if(!servicio) return { error: "Seleccioná el tipo de servicio." };
-            if(!tipoEvento) return { error: "Seleccioná el tipo de evento." };
-            if(!fechaTexto) return { error: "Seleccioná al menos una fecha (puntual o rango) usando el calendario." };
-
-            let fechaLegible = fechaTexto;
-            if (rangeToggle.checked && fechaTexto.includes(' - ')) {
-                fechaLegible = `Desde ${fechaTexto.split(' - ')[0]} hasta ${fechaTexto.split(' - ')[1]}`;
-            } else {
-                fechaLegible = `Día ${fechaTexto}`;
+            let extraInfo = "";
+            if(servicio === 'Decoración y ambientación a domicilio') {
+                const size = decoSizeSelect.value;
+                const direccion = eventAddressInput.value.trim();
+                if(!size) return { error: "Seleccioná el tamaño de decoración." };
+                if(!direccion) return { error: "Ingresá la dirección para el servicio a domicilio." };
+                extraInfo = `%0A📍 *Dirección:* ${direccion}%0A📦 *Tamaño decoración:* ${size}`;
             }
-
-            const message = `Hola, soy ${nombre} y quiero solicitar información para un evento.%0A%0A` +
-                `📌 *Tipo de servicio:* ${servicio}%0A` +
+            const tipoEvento = document.getElementById('eventType').value;
+            if(!tipoEvento) return { error: "Seleccioná el tipo de evento." };
+            const cantidad = document.getElementById('guestCount').value;
+            if(!cantidad || parseInt(cantidad) <= 0) return { error: "Indicá la cantidad estimada de personas." };
+            const estilo = getSelectedStyle();
+            if(!estilo) return { error: "Elegí una característica: Formal o Informal." };
+            const tematica = getThemeValue();
+            const fechaTexto = getFormattedDateRange();
+            if(!fechaTexto) return { error: "Seleccioná al menos una fecha en el calendario." };
+            const hora = getTimeValue();
+            if(!hora) return { error: "Seleccioná una hora usando el reloj digital (formato 24h)." };
+            let fechaHoraLegible = fechaTexto;
+            if (rangeCheckbox.checked && fechaTexto.includes(' - ')) {
+                fechaHoraLegible = `Desde ${fechaTexto.split(' - ')[0]} hasta ${fechaTexto.split(' - ')[1]}, a las ${hora} hs.`;
+            } else {
+                fechaHoraLegible = `Día ${fechaTexto} a las ${hora} hs.`;
+            }
+            let message = `Hola, soy ${nombre} y quiero solicitar información para un evento.%0A%0A` +
+                `📌 *Tipo de servicio:* ${servicio}${extraInfo}%0A` +
                 `🎉 *Tipo de evento:* ${tipoEvento}%0A` +
-                `✨ *Características:* ${caracteristicas}%0A` +
-                `📅 *Fecha(s) seleccionada(s):* ${fechaLegible}%0A%0A` +
-                `🙌 Me encantaría conocer disponibilidad, opciones y presupuesto. ¡Muchas gracias!`;
+                `👥 *Cantidad estimada de personas:* ${cantidad}%0A` +
+                `🎨 *Característica:* ${estilo}%0A` +
+                `🎭 *Temática:* ${tematica}%0A` +
+                `📅 *Fecha y hora:* ${fechaHoraLegible}%0A%0A` +
+                `🙌 Por favor, necesito conocer disponibilidad y presupuesto. ¡Gracias!`;
             return { message, error: null };
         }
 
@@ -580,13 +689,13 @@
                 setTimeout(() => { alertBox.style.display = "none"; }, 4000);
                 return;
             }
-            const phoneNumber = "5493425353534";
-            //const whatsappURL = `https://wa.me/${phoneNumber}?text=${result.message}`;
-            window.open(whatsappURL, '_blank');
-            alertBox.textContent = "✅ ¡Redirigiendo a WhatsApp! Enviá el mensaje para concretar tu consulta.";
+            const phone = "5493425353534";
+            const url = `https://wa.me/${phone}?text=${result.message}`;
+            window.open(url, '_blank');
+            alertBox.textContent = "✅ Consulta preparada. Serás redirigido a WhatsApp para enviar el mensaje.";
             alertBox.className = "alert-message alert-success";
             alertBox.style.display = "block";
-            setTimeout(() => { alertBox.style.display = "none"; }, 3000);
+            setTimeout(() => { alertBox.style.display = "none"; }, 4000);
         });
     </script>
 </body>
