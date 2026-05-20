@@ -283,6 +283,25 @@
         
         /* ===== RESPONSIVE: MÓVIL ===== */
         @media (max-width: 768px) {
+            /* Ocultar logo del hero */
+            .hero-logo {
+                display: none;
+            }
+            /* Reducir tipografías */
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.6rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+            p, .service-text p, .form-hint, .time-hint { font-size: 0.9rem; }
+            .btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
+            .service-text h3 { font-size: 1.4rem; }
+            .contact-item h4 { font-size: 1rem; }
+            .contact-item p { font-size: 0.85rem; }
+            .form-group label { font-size: 0.9rem; }
+            .clock-display-split { font-size: 1.8rem; }
+            .hour-number, .minute-number { font-size: 1.8rem; min-width: 50px; }
+            .separator { font-size: 1.6rem; }
+            
             .datetime-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -368,8 +387,7 @@
             .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 1.5rem; box-shadow: var(--shadow); }
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
-            .hero { padding: 5rem 1.5rem; }
-            .hero-logo img { max-height: 100px; width: auto; }
+            .hero { padding: 4rem 1.5rem; }
             .form-container { padding: 1.5rem; margin: 1rem; }
             .btn-submit { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; }
         }
@@ -600,10 +618,7 @@
                 dateFormat: "d/m/Y",
                 onChange: function(dates) { 
                     selectedDates = dates;
-                    // También actualizar el input móvil si existe
-                    if (mobileFlatpickr) {
-                        mobileFlatpickr.setDate(dates, true);
-                    }
+                    if (mobileFlatpickr) mobileFlatpickr.setDate(dates, true);
                 }
             };
             if (isRange) config.mode = "range";
@@ -615,7 +630,6 @@
             currentFlatpickr = flatpickr(inlineContainer, config);
         }
 
-        // Inicializar también el móvil (modal)
         function initMobilePicker() {
             const isRange = rangeCheckbox.checked;
             const config = {
@@ -625,17 +639,13 @@
                 altFormat: "d/m/Y",
                 onChange: function(dates) {
                     selectedDates = dates;
-                    // Sincronizar con inline si existe
-                    if (currentFlatpickr) {
-                        currentFlatpickr.setDate(dates, true);
-                    }
+                    if (currentFlatpickr) currentFlatpickr.setDate(dates, true);
                 }
             };
             if (isRange) config.mode = "range";
             else config.mode = "single";
             if (mobileFlatpickr) mobileFlatpickr.destroy();
             mobileFlatpickr = flatpickr(mobileInput, config);
-            // Sincronizar fechas existentes
             if (selectedDates.length) {
                 if (isRange && selectedDates.length === 2) mobileFlatpickr.setDate([selectedDates[0], selectedDates[1]], true);
                 else if (selectedDates.length === 1) mobileFlatpickr.setDate(selectedDates[0], true);
@@ -671,7 +681,7 @@
         initInlineCalendar();
         initMobilePicker();
 
-        // ---- RELOJ DIGITAL (idéntico) ----
+        // ---- RELOJ DIGITAL ----
         let currentHour = null;
         let currentMinute = null;
         const hourDisplay = document.getElementById('hourDisplay');
