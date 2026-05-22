@@ -43,7 +43,7 @@
         .nav-links a { color: var(--dark-color); text-decoration: none; font-weight: 600; transition: var(--transition); }
         .nav-links a:hover { color: var(--accent-color); }
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--dark-color); font-size: 1.5rem; cursor: pointer; }
-        .hero { background: linear-gradient(rgba(255,255,255,0.7), rgba(44,62,80,0.8)), url('hero.png'); background-size: cover; background-position: center; text-align: center; padding: 6rem 1.5rem 3rem; color: white; }
+        .hero { background: linear-gradient(rgba(255,255,255,0.7), rgba(44,62,80,0.8)), url('hero.webp'); background-size: cover; background-position: center; text-align: center; padding: 6rem 1.5rem 3rem; color: white; }
         .hero-logo img { max-height: 150px; width: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
         .hero h1 { color: white; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem; color: white; }
@@ -94,25 +94,8 @@
         .theme-wrapper .checkbox-label { display: flex; align-items: center; gap: 0.4rem; background: white; padding: 0.5rem 1rem; border-radius: 40px; border: 1px solid #ddd; cursor: pointer; }
         .theme-wrapper .checkbox-label input { width: 18px; height: 18px; margin: 0; }
         
-        /* Grilla ordenada para calendario y reloj (escritorio) */
-        .datetime-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            align-items: start;
-            margin-top: 0.5rem;
-        }
-        .calendar-col {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            width: 100%;
-        }
-        .time-col {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Calendario a ancho completo (ya no hay reloj) */
+        .calendar-full {
             width: 100%;
         }
         .calendar-wrapper {
@@ -166,88 +149,6 @@
         .range-mode-toggle input { width: auto; margin-right: 0.3rem; }
         .range-mode-toggle label { font-weight: normal; font-size: 0.9rem; cursor: pointer; margin: 0; }
         
-        /* Reloj digital */
-        .digital-clock {
-            background: white;
-            border-radius: 16px;
-            padding: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            width: 100%;
-            max-width: 260px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .clock-display-split {
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            gap: 0.5rem;
-            font-family: 'Montserrat', monospace;
-            font-weight: 700;
-            font-size: 2.8rem;
-            color: var(--dark-color);
-            background: #f0f0f0;
-            padding: 0.5rem 1rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            width: 100%;
-        }
-        .hour-number, .minute-number {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1;
-            min-width: 80px;
-            text-align: center;
-        }
-        .separator {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        .clock-controls-vertical {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            width: 100%;
-            margin-top: 0.5rem;
-        }
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .control-group span {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--dark-color);
-        }
-        .clock-btn-vertical {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .clock-btn-vertical:hover {
-            background: var(--accent-color);
-            transform: scale(1.05);
-        }
-        .time-hint {
-            font-size: 0.75rem;
-            color: #6c757d;
-            margin-top: 0.8rem;
-            text-align: center;
-        }
-        
         .btn-submit {
             display: inline-block;
             background-color: var(--whatsapp-color);
@@ -281,13 +182,16 @@
         .service-item, .gallery-item, .contact-grid { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
         .animated { opacity: 1 !important; transform: translateY(0) !important; }
         
+        /* Ocultar campos condicionalmente */
+        .hidden-field {
+            display: none;
+        }
+        
         /* ===== RESPONSIVE: MÓVIL ===== */
         @media (max-width: 768px) {
-            /* Ocultar logo del hero */
             .hero-logo {
                 display: none;
             }
-            /* Reducir tipografías */
             h1 { font-size: 1.8rem; }
             h2 { font-size: 1.6rem; }
             .hero h1 { font-size: 1.6rem; }
@@ -298,21 +202,7 @@
             .contact-item h4 { font-size: 1rem; }
             .contact-item p { font-size: 0.85rem; }
             .form-group label { font-size: 0.9rem; }
-            .clock-display-split { font-size: 1.8rem; }
-            .hour-number, .minute-number { font-size: 1.8rem; min-width: 50px; }
-            .separator { font-size: 1.6rem; }
             
-            .datetime-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .calendar-col {
-                order: 1;
-            }
-            .time-col {
-                order: 2;
-            }
-            /* Ocultar el calendario inline y el toggle en móvil, mostrar botón que abre modal */
             .calendar-wrapper, .range-mode-toggle, .calendar-col .form-hint {
                 display: none;
             }
@@ -328,39 +218,6 @@
                 font-weight: 500;
                 margin-bottom: 0.5rem;
             }
-            .mobile-date-input:focus {
-                outline: none;
-                border-color: var(--accent-color);
-                box-shadow: 0 0 0 3px rgba(192,160,128,0.2);
-            }
-            /* Reloj más pequeño y centrado */
-            .digital-clock {
-                max-width: 100%;
-                padding: 0.8rem;
-            }
-            .clock-display-split {
-                font-size: 2rem;
-                padding: 0.3rem 0.5rem;
-            }
-            .hour-number, .minute-number {
-                font-size: 2rem;
-                min-width: 60px;
-            }
-            .separator {
-                font-size: 1.8rem;
-            }
-            .clock-btn-vertical {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            .control-group span {
-                font-size: 0.7rem;
-            }
-            .time-hint {
-                font-size: 0.7rem;
-            }
-            /* Ajustes imágenes servicios */
             .service-item {
                 flex-direction: column !important;
             }
@@ -376,14 +233,12 @@
             .service-text {
                 padding: 1.5rem;
             }
-            /* Ajuste mapa y grid contacto */
             .contact-grid {
                 grid-template-columns: 1fr;
             }
             .map-container {
                 min-height: 250px;
             }
-            /* Navegación */
             .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 1.5rem; box-shadow: var(--shadow); }
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
@@ -465,14 +320,18 @@
             <div class="form-container">
                 <form id="reservationForm">
                     <div class="form-group"><label>Nombre y Apellido <span class="required">*</span></label><input type="text" id="fullname" placeholder="Ej: María Gómez"></div>
+                    
+                    <!-- Tipo de servicio -->
                     <div class="form-group"><label>Tipo de servicio <span class="required">*</span></label>
                         <select id="serviceType" required>
                             <option value="" disabled selected>Seleccioná una opción</option>
-                            <option value="Decoración y ambientación a domicilio">Decoración y ambientación a domicilio</option>
-                            <option value="Pelotero">Pelotero</option>
-                            <option value="Alquiler del Salón La Escondida by Bambinos">Alquiler del Salón La Escondida by Bambinos</option>
+                            <option value="Decoración y ambientación a domicilio (en una casa)">Decoración y ambientación a domicilio (en una casa)</option>
+                            <option value="Decoración y ambientación para salón o pelotero">Decoración y ambientación para salón o pelotero</option>
+                            <option value="Alquiler de nuestro salón La Escondida by Bambinos">Alquiler de nuestro salón La Escondida by Bambinos</option>
                         </select>
                     </div>
+
+                    <!-- Campos condicionales: se muestran para los dos primeros servicios -->
                     <div id="decoExtraFields" style="display: none;">
                         <div class="form-group"><label>Tamaño de decoración <span class="required">*</span></label>
                             <select id="decoSize">
@@ -481,10 +340,12 @@
                                 <option value="XXL (para decos con muchos elementos)">XXL (para decos con muchos elementos)</option>
                             </select>
                         </div>
-                        <div class="form-group"><label>Dirección del evento <span class="required">*</span></label>
+                        <div class="form-group"><label>Dirección exacta del evento <span class="required">*</span></label>
                             <input type="text" id="eventAddress" placeholder="Calle, número, localidad, etc.">
                         </div>
                     </div>
+
+                    <!-- Tipo de evento -->
                     <div class="form-group"><label>Tipo de evento <span class="required">*</span></label>
                         <select id="eventType" required>
                             <option value="" disabled selected>Seleccioná una opción</option>
@@ -495,67 +356,44 @@
                             <option value="Otro">Otro</option>
                         </select>
                     </div>
-                    <div class="form-group"><label>Cantidad estimada de personas <span class="required">*</span></label>
+
+                    <!-- Cantidad estimada (solo para alquiler de salón) -->
+                    <div id="guestCountGroup" class="form-group hidden-field">
+                        <label>Cantidad estimada de personas <span class="required">*</span></label>
                         <input type="number" id="guestCount" placeholder="Ej: 80" min="1" step="1">
                     </div>
-                    <div class="form-group"><label>Características del evento (elegí una) <span class="required">*</span></label>
+
+                    <!-- Características (solo si evento NO es infantil y NO está vacío) -->
+                    <div id="eventStyleGroup" class="form-group hidden-field">
+                        <label>Características del evento (elegí una) <span class="required">*</span></label>
                         <div class="radio-group-vertical">
                             <label><input type="radio" name="eventStyle" value="Formal"> Formal</label>
                             <label><input type="radio" name="eventStyle" value="Informal (descontracturado)"> Informal (descontracturado)</label>
                         </div>
                     </div>
+
+                    <!-- Temática (siempre visible) -->
                     <div class="form-group"><label>Temática del evento</label>
                         <div class="theme-wrapper">
-                            <input type="text" id="themeText" placeholder="Ej: Fiesta hawaiana, Retro, etc.">
+                            <input type="text" id="themeText" placeholder="Ej: Fiesta de superhéroe o princesa, retro, etc.">
                             <label class="checkbox-label"><input type="checkbox" id="noThemeCheck"> Ninguna</label>
                         </div>
                         <div class="form-hint">Si marcás "Ninguna", se ignorará la temática escrita.</div>
                     </div>
 
-                    <!-- Fecha y hora: en escritorio inline, en móvil input que abre modal -->
+                    <!-- Calendario (fecha sola, sin hora) -->
                     <div class="form-group">
-                        <label>Fecha y hora del evento <span class="required">*</span></label>
-                        <div class="datetime-grid">
-                            <div class="calendar-col">
-                                <!-- Escritorio: calendario inline -->
-                                <div class="calendar-wrapper">
-                                    <div id="inlineCalendar" class="inline-calendar"></div>
-                                </div>
-                                <div class="range-mode-toggle">
-                                    <input type="checkbox" id="rangeModeCheckbox">
-                                    <label for="rangeModeCheckbox">📅 Modo rango (seleccionar inicio y fin)</label>
-                                </div>
-                                <div class="form-hint" style="text-align:center; margin-top:8px;">Hacé clic en las fechas para seleccionar</div>
-                                <!-- Móvil: input que dispara flatpickr modal -->
-                                <input type="text" id="mobileDateInput" class="mobile-date-input" placeholder="Seleccioná fecha/s" readonly>
+                        <label>Fecha del evento <span class="required">*</span></label>
+                        <div class="calendar-full">
+                            <div class="calendar-wrapper">
+                                <div id="inlineCalendar" class="inline-calendar"></div>
                             </div>
-                            <div class="time-col">
-                                <div class="digital-clock">
-                                    <div class="clock-display-split">
-                                        <div class="hour-block">
-                                            <div class="hour-number" id="hourDisplay">--</div>
-                                        </div>
-                                        <span class="separator">:</span>
-                                        <div class="minute-block">
-                                            <div class="minute-number" id="minuteDisplay">--</div>
-                                        </div>
-                                    </div>
-                                    <div class="clock-controls-vertical">
-                                        <div class="control-group">
-                                            <button type="button" class="clock-btn-vertical" id="hourUpBtn"><i class="fas fa-chevron-up"></i></button>
-                                            <button type="button" class="clock-btn-vertical" id="hourDownBtn"><i class="fas fa-chevron-down"></i></button>
-                                            <span>Hora</span>
-                                        </div>
-                                        <div class="control-group">
-                                            <button type="button" class="clock-btn-vertical" id="minUpBtn"><i class="fas fa-chevron-up"></i></button>
-                                            <button type="button" class="clock-btn-vertical" id="minDownBtn"><i class="fas fa-chevron-down"></i></button>
-                                            <span>Minuto</span>
-                                        </div>
-                                    </div>
-                                    <div class="time-hint">Hora aproximada (formato 24h)</div>
-                                </div>
-                                <input type="hidden" id="selectedTime" value="">
+                            <div class="range-mode-toggle">
+                                <input type="checkbox" id="rangeModeCheckbox">
+                                <label for="rangeModeCheckbox">📅 Modo rango (seleccionar inicio y fin)</label>
                             </div>
+                            <div class="form-hint" style="text-align:center; margin-top:8px;">Hacé clic en las fechas para seleccionar</div>
+                            <input type="text" id="mobileDateInput" class="mobile-date-input" placeholder="Seleccioná fecha/s" readonly>
                         </div>
                     </div>
 
@@ -583,7 +421,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
     <script>
-        // Menú móvil y scroll suave
+        // Menú móvil y scroll
         const mobileBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         if(mobileBtn) mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
@@ -601,7 +439,66 @@
         const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animated'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.service-item, .gallery-item, .contact-grid').forEach(el => observer.observe(el));
 
-        // ---- CALENDARIO: INLINE PARA ESCRITORIO, MODAL PARA MÓVIL ----
+        // ---- LÓGICA DE CONDICIONALES ----
+        const serviceSelect = document.getElementById('serviceType');
+        const decoExtraDiv = document.getElementById('decoExtraFields');
+        const decoSizeSelect = document.getElementById('decoSize');
+        const eventAddressInput = document.getElementById('eventAddress');
+        const guestCountGroup = document.getElementById('guestCountGroup');
+        const guestCountInput = document.getElementById('guestCount');
+        const eventTypeSelect = document.getElementById('eventType');
+        const eventStyleGroup = document.getElementById('eventStyleGroup');
+        const styleRadios = document.querySelectorAll('input[name="eventStyle"]');
+
+        function toggleDecoFields() {
+            const show = (serviceSelect.value === 'Decoración y ambientación a domicilio (en una casa)' ||
+                          serviceSelect.value === 'Decoración y ambientación para salón o pelotero');
+            if(show) {
+                decoExtraDiv.style.display = 'block';
+                decoSizeSelect.required = true;
+                eventAddressInput.required = true;
+            } else {
+                decoExtraDiv.style.display = 'none';
+                decoSizeSelect.required = false;
+                eventAddressInput.required = false;
+                decoSizeSelect.value = '';
+                eventAddressInput.value = '';
+            }
+        }
+
+        function toggleGuestCount() {
+            if(serviceSelect.value === 'Alquiler de nuestro salón La Escondida by Bambinos') {
+                guestCountGroup.classList.remove('hidden-field');
+                guestCountInput.required = true;
+            } else {
+                guestCountGroup.classList.add('hidden-field');
+                guestCountInput.required = false;
+                guestCountInput.value = '';
+            }
+        }
+
+        function toggleEventStyle() {
+            const eventVal = eventTypeSelect.value;
+            const shouldHide = (!eventVal || eventVal === 'Cumpleaños infantil');
+            if (shouldHide) {
+                eventStyleGroup.classList.add('hidden-field');
+                styleRadios.forEach(radio => radio.checked = false);
+            } else {
+                eventStyleGroup.classList.remove('hidden-field');
+            }
+        }
+
+        serviceSelect.addEventListener('change', () => {
+            toggleDecoFields();
+            toggleGuestCount();
+        });
+        eventTypeSelect.addEventListener('change', toggleEventStyle);
+        
+        toggleDecoFields();
+        toggleGuestCount();
+        toggleEventStyle();
+
+        // ---- CALENDARIO (inline y modal) ----
         let currentFlatpickr = null;
         let selectedDates = [];
         const rangeCheckbox = document.getElementById('rangeModeCheckbox');
@@ -681,66 +578,7 @@
         initInlineCalendar();
         initMobilePicker();
 
-        // ---- RELOJ DIGITAL ----
-        let currentHour = null;
-        let currentMinute = null;
-        const hourDisplay = document.getElementById('hourDisplay');
-        const minuteDisplay = document.getElementById('minuteDisplay');
-        const hourUp = document.getElementById('hourUpBtn');
-        const hourDown = document.getElementById('hourDownBtn');
-        const minUp = document.getElementById('minUpBtn');
-        const minDown = document.getElementById('minDownBtn');
-
-        function updateTimeDisplay() {
-            if (currentHour === null) hourDisplay.textContent = '--';
-            else hourDisplay.textContent = currentHour.toString().padStart(2, '0');
-            if (currentMinute === null) minuteDisplay.textContent = '--';
-            else minuteDisplay.textContent = currentMinute.toString().padStart(2, '0');
-            const valid = (currentHour !== null && currentMinute !== null);
-            document.getElementById('selectedTime').value = valid ? `${currentHour}:${currentMinute}` : '';
-        }
-
-        function setHour(value) {
-            if (value < 0) value = 23;
-            if (value > 23) value = 0;
-            currentHour = value;
-            if (currentMinute === null) currentMinute = 0;
-            updateTimeDisplay();
-        }
-        function setMinute(value) {
-            if (value < 0) value = 59;
-            if (value > 59) value = 0;
-            currentMinute = value;
-            if (currentHour === null) currentHour = 12;
-            updateTimeDisplay();
-        }
-        hourUp.addEventListener('click', () => setHour((currentHour === null ? 12 : currentHour) + 1));
-        hourDown.addEventListener('click', () => setHour((currentHour === null ? 12 : currentHour) - 1));
-        minUp.addEventListener('click', () => setMinute((currentMinute === null ? 0 : currentMinute) + 1));
-        minDown.addEventListener('click', () => setMinute((currentMinute === null ? 0 : currentMinute) - 1));
-        updateTimeDisplay();
-
-        // Campos condicionales
-        const serviceSelect = document.getElementById('serviceType');
-        const decoExtraDiv = document.getElementById('decoExtraFields');
-        const decoSizeSelect = document.getElementById('decoSize');
-        const eventAddressInput = document.getElementById('eventAddress');
-        function toggleDecoFields() {
-            if(serviceSelect.value === 'Decoración y ambientación a domicilio') {
-                decoExtraDiv.style.display = 'block';
-                decoSizeSelect.required = true;
-                eventAddressInput.required = true;
-            } else {
-                decoExtraDiv.style.display = 'none';
-                decoSizeSelect.required = false;
-                eventAddressInput.required = false;
-                decoSizeSelect.value = '';
-                eventAddressInput.value = '';
-            }
-        }
-        serviceSelect.addEventListener('change', toggleDecoFields);
-        toggleDecoFields();
-
+        // Checkbox temática
         const noThemeCheck = document.getElementById('noThemeCheck');
         const themeText = document.getElementById('themeText');
         noThemeCheck.addEventListener('change', function() {
@@ -753,9 +591,9 @@
         const alertBox = document.getElementById('formAlert');
 
         function getSelectedStyle() {
-            const radios = document.querySelectorAll('input[name="eventStyle"]');
-            for(let r of radios) if(r.checked) return r.value;
-            return '';
+            if (eventStyleGroup.classList.contains('hidden-field')) return null;
+            for(let r of styleRadios) if(r.checked) return r.value;
+            return null;
         }
         function getThemeValue() {
             if(noThemeCheck.checked) return "Ninguna (sin temática específica)";
@@ -772,10 +610,6 @@
             }
             return '';
         }
-        function getTimeValue() {
-            const time = document.getElementById('selectedTime').value;
-            return time && time !== '--:--' ? time : '';
-        }
 
         function buildWhatsAppMessage() {
             const nombre = document.getElementById('fullname').value.trim();
@@ -783,37 +617,45 @@
             const servicio = serviceSelect.value;
             if(!servicio) return { error: "Seleccioná el tipo de servicio." };
             let extraInfo = "";
-            if(servicio === 'Decoración y ambientación a domicilio') {
+            if(servicio === 'Decoración y ambientación a domicilio (en una casa)' ||
+               servicio === 'Decoración y ambientación para salón o pelotero') {
                 const size = decoSizeSelect.value;
                 const direccion = eventAddressInput.value.trim();
                 if(!size) return { error: "Seleccioná el tamaño de decoración." };
-                if(!direccion) return { error: "Ingresá la dirección para el servicio a domicilio." };
+                if(!direccion) return { error: "Ingresá la dirección del evento." };
                 extraInfo = `%0A📍 *Dirección:* ${direccion}%0A📦 *Tamaño decoración:* ${size}`;
             }
-            const tipoEvento = document.getElementById('eventType').value;
+            const tipoEvento = eventTypeSelect.value;
             if(!tipoEvento) return { error: "Seleccioná el tipo de evento." };
-            const cantidad = document.getElementById('guestCount').value;
-            if(!cantidad || parseInt(cantidad) <= 0) return { error: "Indicá la cantidad estimada de personas." };
+            
+            let cantidad = '';
+            if (servicio === 'Alquiler de nuestro salón La Escondida by Bambinos') {
+                cantidad = guestCountInput.value;
+                if(!cantidad || parseInt(cantidad) <= 0) return { error: "Indicá la cantidad estimada de personas (para alquiler de salón)." };
+            }
+            
             const estilo = getSelectedStyle();
-            if(!estilo) return { error: "Elegí una característica: Formal o Informal." };
+            if (estilo === null && !eventStyleGroup.classList.contains('hidden-field')) {
+                return { error: "Elegí una característica: Formal o Informal (solo para eventos que no sean infantiles)." };
+            }
             const tematica = getThemeValue();
             const fechaTexto = getFormattedDateRange();
             if(!fechaTexto) return { error: "Seleccioná al menos una fecha en el calendario." };
-            const hora = getTimeValue();
-            if(!hora) return { error: "Seleccioná una hora usando el reloj digital (formato 24h)." };
-            let fechaHoraLegible = fechaTexto;
+            
+            let fechaLegible = fechaTexto;
             if (rangeCheckbox.checked && fechaTexto.includes(' - ')) {
-                fechaHoraLegible = `Desde ${fechaTexto.split(' - ')[0]} hasta ${fechaTexto.split(' - ')[1]}, a las ${hora} hs.`;
+                fechaLegible = `Desde ${fechaTexto.split(' - ')[0]} hasta ${fechaTexto.split(' - ')[1]}`;
             } else {
-                fechaHoraLegible = `Día ${fechaTexto} a las ${hora} hs.`;
+                fechaLegible = `Día ${fechaTexto}`;
             }
+            
             let message = `Hola, soy ${nombre} y quiero solicitar información para un evento.%0A%0A` +
                 `📌 *Tipo de servicio:* ${servicio}${extraInfo}%0A` +
-                `🎉 *Tipo de evento:* ${tipoEvento}%0A` +
-                `👥 *Cantidad estimada de personas:* ${cantidad}%0A` +
-                `🎨 *Característica:* ${estilo}%0A` +
-                `🎭 *Temática:* ${tematica}%0A` +
-                `📅 *Fecha y hora:* ${fechaHoraLegible}%0A%0A` +
+                `🎉 *Tipo de evento:* ${tipoEvento}%0A`;
+            if (cantidad) message += `👥 *Cantidad estimada de personas:* ${cantidad}%0A`;
+            if (estilo) message += `🎨 *Característica:* ${estilo}%0A`;
+            message += `🎭 *Temática:* ${tematica}%0A` +
+                `📅 *Fecha:* ${fechaLegible}%0A%0A` +
                 `🙌 Por favor, necesito conocer disponibilidad y presupuesto. ¡Gracias!`;
             return { message, error: null };
         }
