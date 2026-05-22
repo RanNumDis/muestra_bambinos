@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Bambinos - Eventos temáticos</title>
+    <title>Bambinos | Eventos temáticos</title>
     <meta name="description" content="Ambientación, decoración y organización de eventos. Contamos con salón propio. Consultá disponibilidad con nuestro formulario inteligente.">
     <meta name="author" content="Bambinos">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%235D6D7E'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>🥂</text></svg>">
@@ -77,7 +77,7 @@
         .contact-link { color: inherit; text-decoration: none; transition: var(--transition); }
         .contact-link:hover { color: var(--accent-color); }
         .booking-form-section { background-color: white; border-top: 1px solid var(--gray-bg); border-bottom: 1px solid var(--gray-bg); }
-        .form-container { max-width: 1000px; margin: 2rem auto 0; background: var(--light-color); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow); }
+        .form-container { max-width: 700px; margin: 2rem auto 0; background: var(--light-color); border-radius: 28px; padding: 2rem; box-shadow: var(--shadow); }
         .form-group { margin-bottom: 1.6rem; }
         .form-group label { display: block; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 0.5rem; color: var(--dark-color); }
         .required { color: #e74c3c; margin-left: 3px; }
@@ -94,60 +94,20 @@
         .theme-wrapper .checkbox-label { display: flex; align-items: center; gap: 0.4rem; background: white; padding: 0.5rem 1rem; border-radius: 40px; border: 1px solid #ddd; cursor: pointer; }
         .theme-wrapper .checkbox-label input { width: 18px; height: 18px; margin: 0; }
         
-        /* Calendario a ancho completo (ya no hay reloj) */
-        .calendar-full {
-            width: 100%;
-        }
-        .calendar-wrapper {
-            width: 100%;
-            background: white;
-            border-radius: 16px;
-            padding: 0;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: center;
-        }
-        .inline-calendar {
-            width: auto;
-            max-width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        .inline-calendar .flatpickr-calendar {
-            margin: 0 auto !important;
-            box-shadow: none;
-            border: none;
-            background: transparent;
-            position: relative !important;
-            left: auto !important;
-            right: auto !important;
-            transform: none !important;
-            width: auto !important;
-            min-width: 280px;
-        }
-        .inline-calendar .flatpickr-days,
-        .inline-calendar .dayContainer {
-            justify-content: center;
-            width: 100% !important;
-        }
-        .inline-calendar .flatpickr-day {
-            max-width: 14% !important;
-        }
-        .flatpickr-months {
-            display: flex;
-            justify-content: center;
+        /* Campo de fecha con flatpickr */
+        .date-input {
+            cursor: pointer;
+            background-color: white;
         }
         .range-mode-toggle {
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 0.6rem;
-            width: 100%;
         }
         .range-mode-toggle input { width: auto; margin-right: 0.3rem; }
-        .range-mode-toggle label { font-weight: normal; font-size: 0.9rem; cursor: pointer; margin: 0; }
+        .range-mode-toggle label { font-weight: normal; font-size: 0.9rem; cursor: pointer; }
         
         .btn-submit {
             display: inline-block;
@@ -187,69 +147,30 @@
             display: none;
         }
         
-        /* ===== RESPONSIVE: MÓVIL ===== */
         @media (max-width: 768px) {
-            .hero-logo {
-                display: none;
-            }
+            .hero-logo { display: none; }
             h1 { font-size: 1.8rem; }
             h2 { font-size: 1.6rem; }
             .hero h1 { font-size: 1.6rem; }
             .hero p { font-size: 1rem; }
-            p, .service-text p, .form-hint, .time-hint { font-size: 0.9rem; }
+            p, .service-text p, .form-hint { font-size: 0.9rem; }
             .btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
             .service-text h3 { font-size: 1.4rem; }
             .contact-item h4 { font-size: 1rem; }
             .contact-item p { font-size: 0.85rem; }
             .form-group label { font-size: 0.9rem; }
-            
-            .calendar-wrapper, .range-mode-toggle, .calendar-col .form-hint {
-                display: none;
-            }
-            .mobile-date-input {
-                width: 100%;
-                padding: 0.8rem 1rem;
-                font-size: 1rem;
-                border: 1px solid #ccc;
-                border-radius: 12px;
-                background-color: white;
-                cursor: pointer;
-                text-align: center;
-                font-weight: 500;
-                margin-bottom: 0.5rem;
-            }
-            .service-item {
-                flex-direction: column !important;
-            }
-            .service-image {
-                width: 100%;
-                min-height: 200px;
-            }
-            .service-image img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-            .service-text {
-                padding: 1.5rem;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .map-container {
-                min-height: 250px;
-            }
+            .service-item { flex-direction: column !important; }
+            .service-image { width: 100%; min-height: 200px; }
+            .service-image img { width: 100%; height: auto; object-fit: cover; }
+            .service-text { padding: 1.5rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .map-container { min-height: 250px; }
             .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 1.5rem; box-shadow: var(--shadow); }
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
             .hero { padding: 4rem 1.5rem; }
             .form-container { padding: 1.5rem; margin: 1rem; }
             .btn-submit { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; }
-        }
-        @media (min-width: 769px) {
-            .mobile-date-input {
-                display: none;
-            }
         }
     </style>
 </head>
@@ -313,15 +234,14 @@
         </div>
     </section>
 
-    <section class="booking-form-section" id="reservas">
+    <section class="booking-form-section" id="consultas">
         <div class="container">
             <h2>Consultanos por tu evento</h2>
-            <p class="text-center">Completá todos los campos para enviar tu consulta</p>
+            <p class="text-center">Completá todos los campos y envianos tu consulta</p>
             <div class="form-container">
                 <form id="reservationForm">
                     <div class="form-group"><label>Nombre y Apellido <span class="required">*</span></label><input type="text" id="fullname" placeholder="Ej: María Gómez"></div>
                     
-                    <!-- Tipo de servicio -->
                     <div class="form-group"><label>Tipo de servicio <span class="required">*</span></label>
                         <select id="serviceType" required>
                             <option value="" disabled selected>Seleccioná una opción</option>
@@ -331,7 +251,6 @@
                         </select>
                     </div>
 
-                    <!-- Campos condicionales: se muestran para los dos primeros servicios -->
                     <div id="decoExtraFields" style="display: none;">
                         <div class="form-group"><label>Tamaño de decoración <span class="required">*</span></label>
                             <select id="decoSize">
@@ -340,12 +259,11 @@
                                 <option value="XXL (para decos con muchos elementos)">XXL (para decos con muchos elementos)</option>
                             </select>
                         </div>
-                        <div class="form-group"><label>Dirección exacta del evento <span class="required">*</span></label>
+                        <div class="form-group"><label>Dirección del evento <span class="required">*</span></label>
                             <input type="text" id="eventAddress" placeholder="Calle, número, localidad, etc.">
                         </div>
                     </div>
 
-                    <!-- Tipo de evento -->
                     <div class="form-group"><label>Tipo de evento <span class="required">*</span></label>
                         <select id="eventType" required>
                             <option value="" disabled selected>Seleccioná una opción</option>
@@ -357,13 +275,11 @@
                         </select>
                     </div>
 
-                    <!-- Cantidad estimada (solo para alquiler de salón) -->
                     <div id="guestCountGroup" class="form-group hidden-field">
                         <label>Cantidad estimada de personas <span class="required">*</span></label>
                         <input type="number" id="guestCount" placeholder="Ej: 80" min="1" step="1">
                     </div>
 
-                    <!-- Características (solo si evento NO es infantil y NO está vacío) -->
                     <div id="eventStyleGroup" class="form-group hidden-field">
                         <label>Características del evento (elegí una) <span class="required">*</span></label>
                         <div class="radio-group-vertical">
@@ -372,29 +288,23 @@
                         </div>
                     </div>
 
-                    <!-- Temática (siempre visible) -->
                     <div class="form-group"><label>Temática del evento</label>
                         <div class="theme-wrapper">
-                            <input type="text" id="themeText" placeholder="Ej: Fiesta de superhéroe o princesa, retro, etc.">
+                            <input type="text" id="themeText" placeholder="Ej: Fiesta hawaiana, Retro, etc.">
                             <label class="checkbox-label"><input type="checkbox" id="noThemeCheck"> Ninguna</label>
                         </div>
                         <div class="form-hint">Si marcás "Ninguna", se ignorará la temática escrita.</div>
                     </div>
 
-                    <!-- Calendario (fecha sola, sin hora) -->
+                    <!-- Campo de fecha con flatpickr modal (sin inline) -->
                     <div class="form-group">
                         <label>Fecha del evento <span class="required">*</span></label>
-                        <div class="calendar-full">
-                            <div class="calendar-wrapper">
-                                <div id="inlineCalendar" class="inline-calendar"></div>
-                            </div>
-                            <div class="range-mode-toggle">
-                                <input type="checkbox" id="rangeModeCheckbox">
-                                <label for="rangeModeCheckbox">📅 Modo rango (seleccionar inicio y fin)</label>
-                            </div>
-                            <div class="form-hint" style="text-align:center; margin-top:8px;">Hacé clic en las fechas para seleccionar</div>
-                            <input type="text" id="mobileDateInput" class="mobile-date-input" placeholder="Seleccioná fecha/s" readonly>
+                        <input type="text" id="eventDate" class="date-input" placeholder="Seleccioná fecha/s" readonly>
+                        <div class="range-mode-toggle">
+                            <input type="checkbox" id="rangeModeCheckbox">
+                            <label for="rangeModeCheckbox">📅 Modo rango (seleccionar inicio y fin)</label>
                         </div>
+                        <div class="form-hint">Hacé clic para abrir el calendario</div>
                     </div>
 
                     <div id="formAlert" class="alert-message"></div>
@@ -411,7 +321,11 @@
             <div class="footer-container">
                 <div class="footer-column"><h3>Bambinos - Eventos temáticos</h3><p>Más de 10 años organizando eventos inolvidables.</p></div>
                 <div class="footer-column"><h3>Contacto</h3><div class="contact-info"><i class="fas fa-map-marker-alt"></i><span>Diag. Goyena 3271, Santa Fe</span></div><a href="tel:+5493425353534" class="contact-info contact-link"><i class="fas fa-phone-alt"></i><span>(0342) 155-353534</span></a></div>
-                <div class="footer-column"><h3>Redes</h3><a href="https://www.facebook.com/Bambinosmesastematicassantafe/" class="contact-info contact-link"><i class="fab fa-facebook-f"></i><span>Facebook</span></a><a href="https://www.instagram.com/bambinoseventossf/" class="contact-info contact-link"><i class="fab fa-instagram"></i><span>@bambinoseventossf</span></a></div>
+                <div class="footer-column"><h3>Redes sociales</h3>
+                    <a href="https://www.facebook.com/Bambinosmesastematicassantafe/" class="contact-info contact-link" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                    <a href="https://www.instagram.com/bambinoseventossf/" class="contact-info contact-link" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                    <a href="https://www.bambinoseventos.com.ar" class="contact-info contact-link" target="_blank"><i class="fas fa-globe"></i><span>www.bambinoseventos.com.ar</span></a>
+                </div>
             </div>
             <div class="copyright"><p>&copy; <span id="currentYear"></span> Bambinos Eventos - Todos los derechos reservados.</p></div>
         </div>
@@ -498,85 +412,52 @@
         toggleGuestCount();
         toggleEventStyle();
 
-        // ---- CALENDARIO (inline y modal) ----
-        let currentFlatpickr = null;
+        // ---- CALENDARIO MODAL CON FLATPICKR (sin inline) ----
         let selectedDates = [];
         const rangeCheckbox = document.getElementById('rangeModeCheckbox');
-        const inlineContainer = document.getElementById('inlineCalendar');
-        const mobileInput = document.getElementById('mobileDateInput');
-        let mobileFlatpickr = null;
+        const dateInput = document.getElementById('eventDate');
+        let flatpickrInstance = null;
 
-        function initInlineCalendar() {
-            if (currentFlatpickr) currentFlatpickr.destroy();
-            const isRange = rangeCheckbox.checked;
-            const config = {
-                inline: true,
-                locale: 'es',
-                dateFormat: "d/m/Y",
-                onChange: function(dates) { 
-                    selectedDates = dates;
-                    if (mobileFlatpickr) mobileFlatpickr.setDate(dates, true);
-                }
-            };
-            if (isRange) config.mode = "range";
-            else config.mode = "single";
-            if (selectedDates.length) {
-                if (isRange && selectedDates.length === 2) config.defaultDate = [selectedDates[0], selectedDates[1]];
-                else if (!isRange && selectedDates.length === 1) config.defaultDate = selectedDates[0];
-            }
-            currentFlatpickr = flatpickr(inlineContainer, config);
-        }
-
-        function initMobilePicker() {
+        function initDatePicker() {
+            if (flatpickrInstance) flatpickrInstance.destroy();
             const isRange = rangeCheckbox.checked;
             const config = {
                 locale: 'es',
                 dateFormat: "d/m/Y",
                 altInput: true,
                 altFormat: "d/m/Y",
-                onChange: function(dates) {
-                    selectedDates = dates;
-                    if (currentFlatpickr) currentFlatpickr.setDate(dates, true);
-                }
+                onChange: function(dates) { selectedDates = dates; }
             };
             if (isRange) config.mode = "range";
             else config.mode = "single";
-            if (mobileFlatpickr) mobileFlatpickr.destroy();
-            mobileFlatpickr = flatpickr(mobileInput, config);
+            flatpickrInstance = flatpickr(dateInput, config);
             if (selectedDates.length) {
-                if (isRange && selectedDates.length === 2) mobileFlatpickr.setDate([selectedDates[0], selectedDates[1]], true);
-                else if (selectedDates.length === 1) mobileFlatpickr.setDate(selectedDates[0], true);
+                if (isRange && selectedDates.length === 2) flatpickrInstance.setDate([selectedDates[0], selectedDates[1]], true);
+                else if (selectedDates.length === 1) flatpickrInstance.setDate(selectedDates[0], true);
             }
         }
 
         rangeCheckbox.addEventListener('change', () => {
             const oldDates = [...selectedDates];
-            initInlineCalendar();
-            initMobilePicker();
+            initDatePicker();
             if (rangeCheckbox.checked && oldDates.length === 2) {
-                currentFlatpickr.setDate([oldDates[0], oldDates[1]], true);
-                mobileFlatpickr.setDate([oldDates[0], oldDates[1]], true);
+                flatpickrInstance.setDate([oldDates[0], oldDates[1]], true);
                 selectedDates = [oldDates[0], oldDates[1]];
             } else if (!rangeCheckbox.checked && oldDates.length === 1) {
-                currentFlatpickr.setDate(oldDates[0], true);
-                mobileFlatpickr.setDate(oldDates[0], true);
+                flatpickrInstance.setDate(oldDates[0], true);
                 selectedDates = [oldDates[0]];
             } else if (!rangeCheckbox.checked && oldDates.length === 2) {
-                currentFlatpickr.setDate(oldDates[0], true);
-                mobileFlatpickr.setDate(oldDates[0], true);
+                flatpickrInstance.setDate(oldDates[0], true);
                 selectedDates = [oldDates[0]];
             } else if (rangeCheckbox.checked && oldDates.length === 1) {
-                currentFlatpickr.setDate(oldDates[0], true);
-                mobileFlatpickr.setDate(oldDates[0], true);
+                flatpickrInstance.setDate(oldDates[0], true);
                 selectedDates = [oldDates[0]];
             } else {
-                currentFlatpickr.clear();
-                mobileFlatpickr.clear();
+                flatpickrInstance.clear();
                 selectedDates = [];
             }
         });
-        initInlineCalendar();
-        initMobilePicker();
+        initDatePicker();
 
         // Checkbox temática
         const noThemeCheck = document.getElementById('noThemeCheck');
@@ -602,11 +483,11 @@
         function getFormattedDateRange() {
             if (!selectedDates.length) return '';
             if (rangeCheckbox.checked && selectedDates.length === 2) {
-                const start = currentFlatpickr.formatDate(selectedDates[0], "d/m/Y");
-                const end = currentFlatpickr.formatDate(selectedDates[1], "d/m/Y");
+                const start = flatpickrInstance.formatDate(selectedDates[0], "d/m/Y");
+                const end = flatpickrInstance.formatDate(selectedDates[1], "d/m/Y");
                 return `${start} - ${end}`;
             } else if (selectedDates.length >= 1) {
-                return currentFlatpickr.formatDate(selectedDates[0], "d/m/Y");
+                return flatpickrInstance.formatDate(selectedDates[0], "d/m/Y");
             }
             return '';
         }
@@ -656,7 +537,7 @@
             if (estilo) message += `🎨 *Característica:* ${estilo}%0A`;
             message += `🎭 *Temática:* ${tematica}%0A` +
                 `📅 *Fecha:* ${fechaLegible}%0A%0A` +
-                `🙌 Por favor, necesito conocer disponibilidad y presupuesto. ¡Gracias!`;
+                `🙌 Envianos este mensaje sin modificaciones ¡Gracias!`;
             return { message, error: null };
         }
 
