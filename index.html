@@ -329,7 +329,7 @@
                         <input type="text" id="eventDate" class="date-input" placeholder="Seleccioná fecha/s" readonly>
                         <div class="range-mode-toggle">
                             <input type="checkbox" id="rangeModeCheckbox">
-                            <label for="rangeModeCheckbox">📅 Modo rango (seleccionar inicio y fin)</label>
+                            <label for="rangeModeCheckbox">📅 Rango de fechas (si la fecha es flexible podés elegir un rango de varios días)</label>
                         </div>
                         <div class="form-hint">Hacé clic para abrir el calendario</div>
                     </div>
@@ -509,7 +509,7 @@
             return null;
         }
         function getThemeValue() {
-            if(noThemeCheck.checked) return "Ninguna (sin temática específica)";
+            if(noThemeCheck.checked) return "Ninguna";
             return themeText.value.trim() || "No especificada";
         }
         function getFormattedDateRange() {
