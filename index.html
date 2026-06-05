@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Bambinos | Eventos temáticos</title>
+    <title>Bambinos - Eventos temáticos | Consultas</title>
     <meta name="description" content="Ambientación, decoración y organización de eventos. Contamos con salón propio. Consultá disponibilidad con nuestro formulario inteligente.">
     <meta name="author" content="Bambinos">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%235D6D7E'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>🥂</text></svg>">
@@ -39,17 +39,48 @@
         header { background-color: var(--header-footer-bg); padding: 1.2rem 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .logo img { height: 50px; width: auto; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
         .nav-links a { color: var(--dark-color); text-decoration: none; font-weight: 600; transition: var(--transition); }
         .nav-links a:hover { color: var(--accent-color); }
+        /* Botón destacado "Consultá" - mismo gris que "Cómo llegar" */
+        .nav-links .btn-consult {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+        }
+        .nav-links .btn-consult:hover {
+            background-color: #4a5a6a;
+            color: white;
+            transform: translateY(-2px);
+        }
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--dark-color); font-size: 1.5rem; cursor: pointer; }
         .hero { background: linear-gradient(rgba(255,255,255,0.7), rgba(44,62,80,0.8)), url('hero.webp'); background-size: cover; background-position: center; text-align: center; padding: 6rem 1.5rem 3rem; color: white; }
         .hero-logo img { max-height: 150px; width: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
         .hero h1 { color: white; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem; color: white; }
         .hero-social { margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem; }
-        .hero-social a { color: white; font-size: 1.8rem; transition: var(--transition); }
-        .hero-social a:hover { transform: translateY(-5px); }
+        /* Botones sociales con círculo, sin subrayado */
+        .hero-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            backdrop-filter: blur(2px);
+            text-decoration: none;
+        }
+        .hero-social a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+            text-decoration: none;
+        }
         .btn { display: inline-block; padding: 1rem 2.5rem; border-radius: 5px; font-size: 1.2rem; font-weight: bold; text-decoration: none; transition: var(--transition); box-shadow: var(--shadow); margin: 0.5rem; }
         .btn-whatsapp { background-color: var(--whatsapp-color); color: white; }
         .btn-whatsapp:hover { background-color: var(--whatsapp-hover); transform: translateY(-3px); }
@@ -86,6 +117,7 @@
             background-color: white; transition: var(--transition); outline: none;
         }
         .form-group input:focus, .form-group select:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(192,160,128,0.2); }
+        .form-group input:disabled { background-color: #f0f0f0; color: #999; cursor: not-allowed; }
         .radio-group-vertical { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem; }
         .radio-group-vertical label { font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
         .radio-group-vertical input { width: 18px; height: 18px; margin: 0; }
@@ -94,18 +126,8 @@
         .theme-wrapper .checkbox-label { display: flex; align-items: center; gap: 0.4rem; background: white; padding: 0.5rem 1rem; border-radius: 40px; border: 1px solid #ddd; cursor: pointer; }
         .theme-wrapper .checkbox-label input { width: 18px; height: 18px; margin: 0; }
         
-        /* Campo de fecha con flatpickr */
-        .date-input {
-            cursor: pointer;
-            background-color: white;
-        }
-        .range-mode-toggle {
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 0.6rem;
-        }
+        .date-input { cursor: pointer; background-color: white; }
+        .range-mode-toggle { margin-top: 0.5rem; display: flex; align-items: center; justify-content: flex-start; gap: 0.6rem; }
         .range-mode-toggle input { width: auto; margin-right: 0.3rem; }
         .range-mode-toggle label { font-weight: normal; font-size: 0.9rem; cursor: pointer; }
         
@@ -126,7 +148,7 @@
             width: auto;
             min-width: 200px;
         }
-        .btn-submit:hover { background-color: var(--whatsapp-hover); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-submit:hover { background-color: var(--whatsapp-hover); transform: translateY(-3px); }
         .btn-submit i { margin-right: 8px; }
         .alert-message { margin-top: 1.2rem; padding: 0.7rem; border-radius: 12px; text-align: center; font-weight: 500; display: none; }
         .alert-error { background-color: #ffe6e5; color: #c0392b; border-left: 4px solid #e74c3c; }
@@ -142,10 +164,7 @@
         .service-item, .gallery-item, .contact-grid { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
         .animated { opacity: 1 !important; transform: translateY(0) !important; }
         
-        /* Ocultar campos condicionalmente */
-        .hidden-field {
-            display: none;
-        }
+        .hidden-field { display: none; }
         
         @media (max-width: 768px) {
             .hero-logo { display: none; }
@@ -154,7 +173,8 @@
             .hero h1 { font-size: 1.6rem; }
             .hero p { font-size: 1rem; }
             p, .service-text p, .form-hint { font-size: 0.9rem; }
-            .btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
+            .btn { font-size: 1rem; padding: 0.7rem 1.2rem; white-space: nowrap; }
+            .hero .btn-whatsapp { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
             .service-text h3 { font-size: 1.4rem; }
             .contact-item h4 { font-size: 1rem; }
             .contact-item p { font-size: 0.85rem; }
@@ -165,12 +185,15 @@
             .service-text { padding: 1.5rem; }
             .contact-grid { grid-template-columns: 1fr; }
             .map-container { min-height: 250px; }
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 1.5rem; box-shadow: var(--shadow); }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; padding: 1.5rem; box-shadow: var(--shadow); gap: 1rem; }
             .nav-links.active { display: flex; }
+            .nav-links a { display: block; padding: 0.5rem 0; }
+            .nav-links .btn-consult { display: inline-block; width: auto; text-align: center; }
             .mobile-menu-btn { display: block; }
             .hero { padding: 4rem 1.5rem; }
             .form-container { padding: 1.5rem; margin: 1rem; }
             .btn-submit { width: auto; min-width: 200px; margin-left: auto; margin-right: auto; }
+            .hero-social a { width: 40px; height: 40px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -184,7 +207,7 @@
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#salón">Salón</a></li>
                 <li><a href="#ubicacion">Ubicación</a></li>
-                <li><a href="#consultas">Consultá</a></li>
+                <li><a href="#consultas" class="btn-consult">Consultá</a></li>
             </ul>
         </div>
     </header>
@@ -194,8 +217,12 @@
             <div class="hero-logo"><picture><source media="(max-width: 768px)" srcset="logochico.png"><img src="logo.png" alt="Bambinos"></picture></div>
             <h1>Celebrá con nosotros y hacé de tu fiesta un recuerdo inolvidable.</h1>
             <p>Ambientación y decoración a domicilio para todo tipo de eventos.<br>Organización integral de eventos en nuestro salón propio:<br><strong>La Escondida by Bambinos.</strong></p>
-            <a href="https://wa.me/5493425353534" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
-            <div class="hero-social"><a href="https://www.facebook.com/Bambinosmesastematicassantafe/" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/bambinoseventossf/" target="_blank"><i class="fab fa-instagram"></i></a></div>
+            <!-- Botón que lleva a la sección de consultas -->
+            <a href="#consultas" class="btn btn-whatsapp" id="heroConsultBtn"><i class="fab fa-whatsapp"></i> Consultar por WhatsApp</a>
+            <div class="hero-social">
+                <a href="https://www.facebook.com/Bambinosmesastematicassantafe/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/bambinoseventossf/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </section>
 
@@ -237,7 +264,7 @@
     <section class="booking-form-section" id="consultas">
         <div class="container">
             <h2>Consultanos por tu evento</h2>
-            <p class="text-center">Completá todos los campos y envianos tu consulta</p>
+            <p class="text-center">Completá todos los campos y te armamos una consulta personalizada por WhatsApp</p>
             <div class="form-container">
                 <form id="reservationForm">
                     <div class="form-group"><label>Nombre y Apellido <span class="required">*</span></label><input type="text" id="fullname" placeholder="Ej: María Gómez"></div>
@@ -288,15 +315,15 @@
                         </div>
                     </div>
 
-                    <div class="form-group"><label>Temática del evento</label>
+                    <!-- Temática: sin texto de ayuda, con deshabilitado al marcar "Ninguna" -->
+                    <div class="form-group">
+                        <label>Temática del evento</label>
                         <div class="theme-wrapper">
                             <input type="text" id="themeText" placeholder="Ej: Fiesta hawaiana, Retro, etc.">
                             <label class="checkbox-label"><input type="checkbox" id="noThemeCheck"> Ninguna</label>
                         </div>
-                        <div class="form-hint">Si marcás "Ninguna", se ignorará la temática escrita.</div>
                     </div>
 
-                    <!-- Campo de fecha con flatpickr modal (sin inline) -->
                     <div class="form-group">
                         <label>Fecha del evento <span class="required">*</span></label>
                         <input type="text" id="eventDate" class="date-input" placeholder="Seleccioná fecha/s" readonly>
@@ -335,16 +362,22 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
     <script>
-        // Menú móvil y scroll
+        // Menú móvil
         const mobileBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         if(mobileBtn) mobileBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if(target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
             });
         });
         document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -353,7 +386,7 @@
         const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animated'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.service-item, .gallery-item, .contact-grid').forEach(el => observer.observe(el));
 
-        // ---- LÓGICA DE CONDICIONALES ----
+        // Lógica condicional de campos
         const serviceSelect = document.getElementById('serviceType');
         const decoExtraDiv = document.getElementById('decoExtraFields');
         const decoSizeSelect = document.getElementById('decoSize');
@@ -407,12 +440,19 @@
             toggleGuestCount();
         });
         eventTypeSelect.addEventListener('change', toggleEventStyle);
-        
         toggleDecoFields();
         toggleGuestCount();
         toggleEventStyle();
 
-        // ---- CALENDARIO MODAL CON FLATPICKR (sin inline) ----
+        // Temática: al marcar "Ninguna", deshabilitar input y ponerlo gris
+        const noThemeCheck = document.getElementById('noThemeCheck');
+        const themeText = document.getElementById('themeText');
+        noThemeCheck.addEventListener('change', function() {
+            themeText.disabled = this.checked;
+            if(this.checked) themeText.value = '';
+        });
+
+        // Calendario con flatpickr modal
         let selectedDates = [];
         const rangeCheckbox = document.getElementById('rangeModeCheckbox');
         const dateInput = document.getElementById('eventDate');
@@ -459,15 +499,7 @@
         });
         initDatePicker();
 
-        // Checkbox temática
-        const noThemeCheck = document.getElementById('noThemeCheck');
-        const themeText = document.getElementById('themeText');
-        noThemeCheck.addEventListener('change', function() {
-            themeText.disabled = this.checked;
-            if(this.checked) themeText.value = '';
-        });
-
-        // Envío WhatsApp
+        // Envío a WhatsApp
         const submitBtn = document.getElementById('submitReservationBtn');
         const alertBox = document.getElementById('formAlert');
 
@@ -531,13 +563,13 @@
             }
             
             let message = `Hola, soy ${nombre} y quiero solicitar información para un evento.%0A%0A` +
-                `📌 *Tipo de servicio:* ${servicio}${extraInfo}%0A` +
-                `🎉 *Tipo de evento:* ${tipoEvento}%0A`;
-            if (cantidad) message += `👥 *Cantidad estimada de personas:* ${cantidad}%0A`;
-            if (estilo) message += `🎨 *Característica:* ${estilo}%0A`;
-            message += `🎭 *Temática:* ${tematica}%0A` +
-                `📅 *Fecha:* ${fechaLegible}%0A%0A` +
-                `🙌 Envianos este mensaje sin modificaciones ¡Gracias!`;
+                `- *Tipo de servicio:* ${servicio}${extraInfo}%0A` +
+                `- *Tipo de evento:* ${tipoEvento}%0A`;
+            if (cantidad) message += `- *Cantidad estimada de personas:* ${cantidad}%0A`;
+            if (estilo) message += `- *Característica:* ${estilo}%0A`;
+            message += `- *Temática:* ${tematica}%0A` +
+                `- *Fecha:* ${fechaLegible}%0A%0A` +
+                `Envianos este mensaje sin modificaciones para facilitar la consulta ¡Gracias!`;
             return { message, error: null };
         }
 
